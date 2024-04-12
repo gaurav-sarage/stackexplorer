@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(''),
+  metadataBase: new URL('https://nextblend.vercel.app'),
   title: {
     template: '%s | StackExplorer',
     default: 'StackExplorer',
