@@ -9,6 +9,7 @@ import { cn, flattenData } from '@/lib/utils';
 import { Item } from '@/types';
 import Fuse from 'fuse.js';
 import { ArrowRight, Sparkle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Hero() {
     const router = useRouter();
@@ -55,8 +56,8 @@ export default function Hero() {
         <>
             <div className="relative mx-auto flex max-w-2xl flex-col items-center">
                 <div className="mb-8 flex">
-                    <a
-                        href="https://twitter.com/hqasmei/status/1754080596022931546"
+                    <Link
+                        href=""
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex"
@@ -72,7 +73,7 @@ export default function Hero() {
                                 />
                             </div>
                         </span>
-                    </a>
+                    </Link>
                 </div>
                 <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-gray-50 sm:text-6xl">
                     All your <span className="text-[#3b82f6]">tech stacks</span>
