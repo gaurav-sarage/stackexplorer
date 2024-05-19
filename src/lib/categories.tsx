@@ -7,14 +7,14 @@ import { categoryData as catData1 } from '@/data/web-development';
 import { Category } from '@/types';
 
 export function getCategories(): any[] {
-    const data = {
-        catData1,
-        catData2,
-        catData3,
-        catData4,
-        catData5,
-        catData7,
-    };
-    const output = Object.values(data);
-    return output;
-};
+  const data = {
+    catData1,
+    catData2,
+    catData3,
+    catData4,
+    catData5,
+    catData7,
+  };
+  const output = Object.values(data);
+  return output;
+}
