@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 
 import { inter } from '@/app/fonts';
+import { Toaster } from '@/components/ui/sonner';
 import { Analytics } from '@vercel/analytics/react';
 
-import "../styles/globals.css";
+import '../styles/globals.css';
+
+import Footer from './footer';
+import Header from './header';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextblend.vercel.app'),
+  metadataBase: new URL('https://stackexplorer.vercel.app/'),
   title: {
     template: '%s | StackExplorer',
     default: 'StackExplorer',
@@ -43,9 +47,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <div className="relative flex min-h-screen flex-col bg-background">
+          <Header />
           <main className="flex-1">{children}</main>
+          <Footer />
         </div>
-        {/* <Toaster position="top-center" /> */}
+        <Toaster position="top-center" />
         <Analytics />
       </body>
     </html>
