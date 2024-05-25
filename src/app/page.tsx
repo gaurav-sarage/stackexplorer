@@ -1,7 +1,9 @@
-import React from "react";
-import MaxWidthWrapper from "@/components/max-width-wrapper";
-import Categories from "./categories";
-import Hero from "./hero";
+import React from 'react';
+
+import MaxWidthWrapper from '@/components/max-width-wrapper';
+
+import Categories from './categories';
+import Hero from './hero';
 
 export default function HomePage() {
   return (
@@ -14,4 +16,4 @@ export default function HomePage() {
       </div>
     </>
   );
-};
+}
