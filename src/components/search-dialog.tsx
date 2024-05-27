@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-
-import { useRouter } from 'next/navigation';
-
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
-} from '@/components/ui/command';
-import { searchData } from '@/lib/utils';
+  CommandList
+} from "@/components/ui/command";
+import { searchData } from "@/lib/utils";
 
 export default function SearchDialog({
   open,
@@ -23,7 +21,7 @@ export default function SearchDialog({
 }) {
   const router = useRouter();
   const data = searchData();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchItem, setSearchItem] = useState('');
 
   function handleClick(component: any) {
     router.push(component.fullPath);
@@ -31,27 +29,25 @@ export default function SearchDialog({
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSearchTerm(e.target.value);
+    setSearchItem(e.target.value);
   }
 
-  const filteredData = data
-    .map((category) => ({
-      ...category,
-      items: category.items.filter((item: any) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()),
-      ),
-    }))
-    .filter((category) => category.items.length > 0);
+  const filteredData = data.map((category) => ({
+    ...category,
+    items: category.items.filter((item: any) => item.name.toLowerCase().includes(searchItem.toLowerCase()),
+  )
+  }))
+  .filter((category) => category.items.length > 0);
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput
-        placeholder="Type a command or search..."
-        value={searchTerm}
-        onChangeCapture={handleInputChange}
+        placeholder="Type to search ...."
+        value={searchItem}
+        onChange={handleInputChange}
       />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandEmpty>No results found!</CommandEmpty>
         <CommandList>
           {filteredData.map((category, idx) => {
             const categoryName = category.categoryName;
@@ -66,16 +62,18 @@ export default function SearchDialog({
                         className="w-full justify-start flex flex-row items-center space-x-3"
                       >
                         <item.icon size={24} />
-                        <span>{item.name}</span>
+                        <span>
+                          {item.name}
+                        </span>
                       </button>
                     </CommandItem>
                   );
                 })}
               </CommandGroup>
-            );
+            )
           })}
         </CommandList>
       </CommandList>
     </CommandDialog>
-  );
+  )
 }
