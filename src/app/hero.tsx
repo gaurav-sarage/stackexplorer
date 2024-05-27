@@ -3,8 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { ITEMS } from '@/consts';
-import { cn, flattenData } from '@/lib/utils';
+import {flattenData } from '@/lib/utils';
 import { Item } from '@/types';
 import Fuse from 'fuse.js';
 import { ArrowRight, Sparkle } from 'lucide-react';
@@ -19,8 +18,8 @@ export default function Hero() {
 
   useEffect(() => {
     const options = {
-      keys: ['name'], // the keys to search in each item, you can add more keys
-      includeScore: true, // this is optional, depending on your requirements
+      keys: ['name'],
+      includeScore: true, 
     };
     const temp = flattenData();
     setFuse(new Fuse(temp, options));
@@ -29,11 +28,11 @@ export default function Hero() {
   useEffect(() => {
     if (searchQuery && fuse) {
       const results = fuse.search(searchQuery).map((result) => result.item);
-      setSearchResults(results.slice(0, 5)); // Adjust based on your preference
+      setSearchResults(results.slice(0, 5)); 
       setDropdownVisible(results.length > 0);
     } else {
       setSearchResults([]);
-      setDropdownVisible(false); // Hide dropdown if search query is empty
+      setDropdownVisible(false);
     }
   }, [searchQuery, fuse]);
 
@@ -47,8 +46,8 @@ export default function Hero() {
   };
 
   const clearSearch = () => {
-    setSearchQuery(''); // Clear the search query
-    setSearchResults([]); // Optionally clear the search results
+    setSearchQuery(''); 
+    setSearchResults([]);
   };
 
   return (
@@ -56,7 +55,7 @@ export default function Hero() {
       <div className="relative mx-auto flex max-w-2xl flex-col items-center">
         <div className="mb-8 flex">
           <Link
-            href=""
+            href="https://github.com/gaurav-sarage/stackexplorer"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex"
