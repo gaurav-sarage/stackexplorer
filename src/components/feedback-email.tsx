@@ -29,7 +29,7 @@ export const FeedbackEmail: React.FC<Readonly<FeedbackEmailProps>> = ({
               You got a message!
             </Heading>
             <Text className="text-[14px] leading-[24px] text-black">
-              Hello Hosna,
+              Hello Gaurav,
             </Text>
             <Text className="text-[14px] leading-[24px] text-black">
               You got an email from <strong>{email}</strong>. <br />
