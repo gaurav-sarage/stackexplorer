@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Feedback from '@/components/feedback';
 import MainNav from '@/components/main-nav';
@@ -20,11 +20,28 @@ import { Search } from 'lucide-react';
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+        event.preventDefault();
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const preventHover = (event: any) => {
     const e = event as Event;
     if (window.innerWidth < 1024) console.log(window.innerWidth);
     e.preventDefault();
   };
+
   return (
     <header className="w-full z-10">
       <SearchDialog open={open} setOpen={setOpen} />
